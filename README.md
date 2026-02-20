@@ -15,20 +15,3 @@ water-research-site/
 └── README.md           # This file
 ```
 
-### How to Run
-1. Open the folder in VS Code
-2. Use **Live Server** extension (right-click index.html → Open with Live Server)
-   - Or simply double-click `index.html` to open in browser
-3. No build tools or configuration needed — fully static HTML/CSS/JS
-
-### Adding Images
-- Place `image1.PNG` and `image2.PNG` in the `images/` folder
-- Update the `<img>` src paths in `index.html` where placeholders exist
-
-### Features
-- Full RTL Arabic support with Amiri & Cairo fonts
-- Floating sidebar navigation with active section highlighting
-- Smooth scroll animations on section entrance
-- Responsive design for desktop, tablet, and mobile
-- Professional color palette (navy + teal + gold)
-- All original LaTeX content preserved word-for-word
