@@ -374,11 +374,7 @@ body {
   box-shadow: 0 16px 40px rgba(245,166,35,.18);
 }
 
-/* Avatar */
-.team-avatar {
-  position: relative; width: 100px; height: 100px;
-  flex-shrink: 0;
-}
+
 .avatar-ring {
   position: absolute; inset: -4px; border-radius: 50%;
   border: 2px solid transparent;
@@ -723,20 +719,35 @@ body {
   .vb-row span { width: 100px; }
   .vs-card-wide { grid-column: auto; }
 }
+/* ─── TEAM AVATAR (FIXED) ───────────────────── */
 .team-avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  overflow: hidden; /* هذا أهم سطر */
-  margin: auto;
   position: relative;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin: auto;
 }
 
 .team-avatar img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* يخلي الصورة تتقص صح */
+  object-fit: cover;
   display: block;
+}
+
+/* تعطيل الأفاتار القديم */
+.avatar-inner,
+.avatar-emoji,
+.avatar-initials {
+  display: none;
+}
+
+/* حركة حلوة */
+.team-card:hover .team-avatar img {
+  transform: scale(1.08);
+  transition: 0.4s ease;
 }
 @media (max-width: 480px) {
   .hero-title { font-size: 1.7rem; }
