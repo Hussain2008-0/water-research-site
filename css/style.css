@@ -723,7 +723,30 @@ body {
   .vb-row span { width: 100px; }
   .vs-card-wide { grid-column: auto; }
 }
+.team-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+}
 
+.team-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* تأثير جميل (اختياري) */
+.team-avatar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid #00bcd4;
+  opacity: 0.6;
+}
 @media (max-width: 480px) {
   .hero-title { font-size: 1.7rem; }
   .hero-stats { gap: 10px; }
