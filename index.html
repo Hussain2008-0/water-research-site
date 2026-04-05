@@ -11,10 +11,14 @@
 </head>
 <body>
 
-<!-- Animated background particles -->
+<!-- ══════════════════════════════════
+     BACKGROUND PARTICLES
+══════════════════════════════════ -->
 <div class="bg-particles" id="bgParticles"></div>
 
-<!-- ===== NAVIGATION ===== -->
+<!-- ══════════════════════════════════
+     NAVIGATION
+══════════════════════════════════ -->
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
     <div class="nav-brand">
@@ -25,6 +29,7 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-menu" id="navMenu">
+      <li><a href="#team-section"    class="nlink">👥 الفريق</a></li>
       <li><a href="#visitor-section" class="nlink">🌟 للزوار</a></li>
       <li><a href="#why-matters"     class="nlink">🌍 لماذا يهمنا؟</a></li>
       <li><a href="#full-research"   class="nlink nlink-research">📄 البحث الكامل</a></li>
@@ -32,164 +37,320 @@
   </div>
 </nav>
 
-<!-- ===== HERO SECTION ===== -->
+<!-- ══════════════════════════════════
+     ① HERO
+══════════════════════════════════ -->
 <section class="hero" id="hero">
-  <div class="hero-water-animation">
-    <div class="wave wave1"></div>
-    <div class="wave wave2"></div>
-    <div class="wave wave3"></div>
+  <div class="water-anim">
+    <svg class="wave-svg w1" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120Z"/></svg>
+    <svg class="wave-svg w2" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,80 C300,20 600,110 900,50 C1100,10 1300,80 1440,40 L1440,120 L0,120Z"/></svg>
+    <svg class="wave-svg w3" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,40 C360,100 720,10 1080,60 C1260,90 1380,20 1440,50 L1440,120 L0,120Z"/></svg>
   </div>
-  <div class="hero-bubbles" id="heroBubbles"></div>
-  <div class="hero-content">
-    <div class="hero-badge animate-fade-up" style="animation-delay:0.2s">
-      <span>🏫</span> مدرسة الرواد الثانوية — بازار علمي 2026
-    </div>
-    <h1 class="hero-title animate-fade-up" style="animation-delay:0.4s">
+  <div class="bubbles" id="bubbles"></div>
+
+  <div class="hero-box">
+    <div class="badge hero-anim" style="--d:.15s">🏫 مدرسة الرواد الثانوية — بازار علمي 2026</div>
+
+    <h1 class="hero-title hero-anim" style="--d:.35s">
       تقييم كفاءة المواد الطبيعية<br>
-      <span class="hero-title-accent">منخفضة التكلفة</span><br>
+      <span class="accent-text">منخفضة التكلفة</span><br>
       في تنقية المياه
     </h1>
-    <p class="hero-tagline animate-fade-up" style="animation-delay:0.6s">
-      ماء أنقى • طبيعة أذكى • مستقبل أفضل
-    </p>
-    <div class="hero-meta animate-fade-up" style="animation-delay:0.8s">
-      <div class="hero-meta-item">
-        <span class="meta-icon">👨‍🔬</span>
-        <span>إعداد: حسين علي شيبان</span>
+
+    <p class="hero-tagline hero-anim" style="--d:.55s">ماء أنقى &nbsp;·&nbsp; طبيعة أذكى &nbsp;·&nbsp; مستقبل أفضل</p>
+
+    <div class="hero-meta hero-anim" style="--d:.7s">
+      <span>👨‍🔬 مجموعة بحثية — 6 أعضاء</span>
+      <span class="dot">·</span>
+      <span>📚 التنمية المستدامة 2</span>
+      <span class="dot">·</span>
+      <span>📅 30 يناير 2026</span>
+    </div>
+
+    <div class="hero-stats hero-anim" style="--d:.85s">
+      <div class="stat-pill">
+        <span class="stat-n" data-count="99">0</span><span class="stat-u">%</span>
+        <span class="stat-l">إزالة العكارة</span>
       </div>
-      <div class="hero-meta-item">
-        <span class="meta-icon">📚</span>
-        <span>مادة: التنمية المستدامة 2</span>
+      <div class="stat-pill">
+        <span class="stat-n" data-count="2.2">0</span><span class="stat-u"> مليار</span>
+        <span class="stat-l">بلا ماء نظيف</span>
       </div>
-      <div class="hero-meta-item">
-        <span class="meta-icon">📅</span>
-        <span>30 يناير 2026</span>
+      <div class="stat-pill">
+        <span class="stat-n" data-count="4">0</span><span class="stat-u"> مواد</span>
+        <span class="stat-l">طبيعية مختبرة</span>
       </div>
     </div>
-    <div class="hero-stats animate-fade-up" style="animation-delay:1s">
-      <div class="stat-card">
-        <div class="stat-number" data-count="99">0</div>
-        <div class="stat-unit">%</div>
-        <div class="stat-label">إزالة العكارة</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number" data-count="2.2">0</div>
-        <div class="stat-unit">مليار</div>
-        <div class="stat-label">يفتقرون للمياه النظيفة</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number" data-count="4">0</div>
-        <div class="stat-unit">مواد</div>
-        <div class="stat-label">طبيعية مختبرة</div>
-      </div>
+
+    <!-- TWO CLEAR JUMP BUTTONS -->
+    <div class="hero-jumps hero-anim" style="--d:1.05s">
+      <a href="#team-section" class="jump team-jump">
+        <span class="jump-icon">👥</span>
+        <span class="jump-text">
+          <strong>أعضاء الفريق</strong>
+          <small>تعرف على المجموعة البحثية</small>
+        </span>
+        <span class="jump-arrow">↓</span>
+      </a>
+      <a href="#visitor-section" class="jump visitor-jump">
+        <span class="jump-icon">🌟</span>
+        <span class="jump-text">
+          <strong>الشرح المبسط</strong>
+          <small>للجميع — طلاب وأهل وزوار</small>
+        </span>
+        <span class="jump-arrow">↓</span>
+      </a>
+      <a href="#full-research" class="jump research-jump">
+        <span class="jump-icon">📄</span>
+        <span class="jump-text">
+          <strong>البحث العلمي الكامل</strong>
+          <small>للمحكّمين والمعلمين</small>
+        </span>
+        <span class="jump-arrow">↓</span>
+      </a>
     </div>
-    <a href="#summary" class="hero-cta animate-fade-up" style="animation-delay:1.2s">
-      اكتشف البحث
-      <span class="cta-arrow">↓</span>
-    </a>
+
+  </div><!-- /hero-box -->
+</section>
+
+<!-- ══════════════════════════════════
+     ② TEAM SECTION
+══════════════════════════════════ -->
+<div class="zone-label team-zone-label" id="team-section">
+  <div class="zone-label-inner">
+    <span class="zone-icon">👥</span>
+    <div>
+      <strong>أعضاء الفريق البحثي</strong>
+      <span>المجموعة التي أعدّت هذا البحث — مدرسة الرواد الثانوية 2026</span>
+    </div>
+  </div>
+</div>
+
+<section class="team-section">
+  <div class="container">
+    <div class="team-grid">
+
+      <div class="team-card" data-reveal>
+        <div class="team-avatar" data-initials="ح ع">
+          <div class="avatar-ring"></div>
+          <div class="avatar-inner">
+            <span class="avatar-emoji">👨‍🔬</span>
+            <span class="avatar-initials">ح ع</span>
+          </div>
+        </div>
+        <div class="team-info">
+          <h3 class="team-name">حسين علي شيبان</h3>
+          <span class="team-role">قائد المجموعة</span>
+        </div>
+      </div>
+
+      <div class="team-card" data-reveal>
+        <div class="team-avatar" data-initials="م ع">
+          <div class="avatar-ring"></div>
+          <div class="avatar-inner">
+            <span class="avatar-emoji">👨‍🎓</span>
+            <span class="avatar-initials">م ع</span>
+          </div>
+        </div>
+        <div class="team-info">
+          <h3 class="team-name">محمد عبدالعزيز تنبل</h3>
+          <span class="team-role">عضو الفريق</span>
+        </div>
+      </div>
+
+      <div class="team-card" data-reveal>
+        <div class="team-avatar" data-initials="م ف">
+          <div class="avatar-ring"></div>
+          <div class="avatar-inner">
+            <span class="avatar-emoji">👨‍🎓</span>
+            <span class="avatar-initials">م ف</span>
+          </div>
+        </div>
+        <div class="team-info">
+          <h3 class="team-name">ماجد فهد المطيري</h3>
+          <span class="team-role">عضو الفريق</span>
+        </div>
+      </div>
+
+      <div class="team-card" data-reveal>
+        <div class="team-avatar" data-initials="م ح">
+          <div class="avatar-ring"></div>
+          <div class="avatar-inner">
+            <span class="avatar-emoji">👨‍🎓</span>
+            <span class="avatar-initials">م ح</span>
+          </div>
+        </div>
+        <div class="team-info">
+          <h3 class="team-name">مسعود حمد المري</h3>
+          <span class="team-role">عضو الفريق</span>
+        </div>
+      </div>
+
+      <div class="team-card" data-reveal>
+        <div class="team-avatar" data-initials="ف ع">
+          <div class="avatar-ring"></div>
+          <div class="avatar-inner">
+            <span class="avatar-emoji">👨‍🎓</span>
+            <span class="avatar-initials">ف ع</span>
+          </div>
+        </div>
+        <div class="team-info">
+          <h3 class="team-name">فيصل عادل آل سرحان</h3>
+          <span class="team-role">عضو الفريق</span>
+        </div>
+      </div>
+
+      <div class="team-card" data-reveal>
+        <div class="team-avatar" data-initials="ف ح">
+          <div class="avatar-ring"></div>
+          <div class="avatar-inner">
+            <span class="avatar-emoji">👨‍🎓</span>
+            <span class="avatar-initials">ف ح</span>
+          </div>
+        </div>
+        <div class="team-info">
+          <h3 class="team-name">فهد حسن الزهراني</h3>
+          <span class="team-role">عضو الفريق</span>
+        </div>
+      </div>
+
+    </div><!-- /team-grid -->
   </div>
 </section>
 
-<!-- ===== VISITOR QUICK SUMMARY (separate from research) ===== -->
-<section class="visitor-section" id="visitor-summary">
-  <div class="visitor-header">
-    <div class="visitor-badge">🌟 خاص بالزوار والطلاب الصغار</div>
-    <h2>ماذا يعني هذا البحث؟ — شرح مبسط</h2>
-    <p class="visitor-note">⚠️ هذا القسم شرح تبسيطي خاص بالزوار فقط، ولا يُعدّ جزءاً من النص العلمي للبحث</p>
-  </div>
-  <div class="visitor-cards">
-    <div class="visitor-card" data-reveal>
-      <div class="visitor-card-icon">🤔</div>
-      <h3>ما المشكلة؟</h3>
-      <p>أكثر من ٢ مليار شخص في العالم لا يملكون ماء نظيفاً للشرب. هذا مثل لو أن ثلث سكان الأرض يشربون ماء موسخاً!</p>
-    </div>
-    <div class="visitor-card" data-reveal>
-      <div class="visitor-card-icon">💡</div>
-      <h3>ما الحل؟</h3>
-      <p>اكتشف الباحث أن أشياء بسيطة من الطبيعة — مثل بذور نبتة المورينجا وقشور الموز والفحم — يمكنها تنظيف الماء الملوث!</p>
-    </div>
-    <div class="visitor-card" data-reveal>
-      <div class="visitor-card-icon">🌿</div>
-      <h3>كيف تعمل المورينجا؟</h3>
-      <p>بذور المورينجا تحتوي على مواد تجذب الأوساخ في الماء وتجعلها ترسب في القاع — مثلما يجذب المغناطيس المعدن!</p>
-    </div>
-    <div class="visitor-card" data-reveal>
-      <div class="visitor-card-icon">🔥</div>
-      <h3>ماذا يفعل الفحم النباتي؟</h3>
-      <p>الفحم النباتي يمتص المواد الكيميائية الضارة من الماء مثل الإسفنجة — يلتصق بها ويمنعها من المرور!</p>
-    </div>
-    <div class="visitor-card" data-reveal>
-      <div class="visitor-card-icon">🍌</div>
-      <h3>وقشور الفاكهة؟</h3>
-      <p>قشور الموز والبرتقال المجففة تمتص المعادن السامة والأصباغ الكيماوية — وهي مجانية لأنها نفايات زراعية!</p>
-    </div>
-    <div class="visitor-card" data-reveal>
-      <div class="visitor-card-icon">🏆</div>
-      <h3>ما النتيجة؟</h3>
-      <p>عند دمج هذه المواد في فلتر واحد، يمكن إزالة أكثر من 99% من الأوساخ من الماء بتكلفة منخفضة جداً!</p>
+<!-- ══════════════════════════════════
+     ③ VISITOR SECTION — SIMPLIFIED
+══════════════════════════════════ -->
+<div class="zone-label visitor-zone-label" id="visitor-section">
+  <div class="zone-label-inner">
+    <span class="zone-icon">🌟</span>
+    <div>
+      <strong>قسم الزوار والطلاب</strong>
+      <span>شرح مبسط — ليس جزءاً من النص العلمي للبحث</span>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ===== WHY IT MATTERS ===== -->
-<section class="why-matters" id="why-matters">
-  <div class="section-container">
-    <div class="section-header" data-reveal>
-      <div class="section-icon">🌍</div>
-      <h2 class="section-title">لماذا يهمنا هذا البحث؟</h2>
+<section class="visitor-section">
+  <div class="container">
+
+    <div class="visitor-intro" data-reveal>
+      <h2>بكل بساطة… ما القصة؟</h2>
+      <p>
+        هذا البحث يجيب على سؤال مهم جداً:<br>
+        <strong>هل يمكن تنظيف المياه الملوثة بأشياء بسيطة من الطبيعة بدلاً من الكيماويات الغالية؟</strong>
+      </p>
     </div>
-    <div class="impact-grid">
-      <div class="impact-item" data-reveal>
-        <div class="impact-icon">🏥</div>
-        <div class="impact-text">
-          <h3>الصحة أولاً</h3>
-          <p>الماء الملوث يسبب الكوليرا والإسهال وأمراض خطيرة تقتل الملايين سنوياً، خاصة الأطفال</p>
-        </div>
+
+    <div class="vs-cards" data-reveal>
+      <div class="vs-card">
+        <div class="vs-icon">🤔</div>
+        <h3>المشكلة</h3>
+        <p>أكثر من <strong>2 مليار شخص</strong> في العالم لا يجدون ماءً نظيفاً للشرب. كثير من المناطق الفقيرة لا تملك محطات تنقية باهظة.</p>
       </div>
-      <div class="impact-item" data-reveal>
-        <div class="impact-icon">💰</div>
-        <div class="impact-text">
-          <h3>توفير المال</h3>
-          <p>المواد الطبيعية رخيصة جداً مقارنة بالكيماويات الصناعية المستوردة الباهظة</p>
-        </div>
+      <div class="vs-card">
+        <div class="vs-icon">💡</div>
+        <h3>الفكرة</h3>
+        <p>اختبار <strong>4 مواد طبيعية رخيصة</strong> لمعرفة قدرتها على تنظيف الماء الموسّخ — بدون كيماويات غالية.</p>
       </div>
-      <div class="impact-item" data-reveal>
-        <div class="impact-icon">🌱</div>
-        <div class="impact-text">
-          <h3>حماية البيئة</h3>
-          <p>لا كيماويات ضارة، لا تلوث إضافي، مواد قابلة للتحلل الطبيعي</p>
-        </div>
+      <div class="vs-card">
+        <div class="vs-icon">🌱</div>
+        <h3>المورينجا</h3>
+        <p>بذور نبتة المورينجا تحتوي على مواد تجذب الأوساخ وتجعلها <strong>ترسب في القاع</strong> — مثل المغناطيس تماماً! كفاءة تصل لـ 99%.</p>
       </div>
-      <div class="impact-item" data-reveal>
-        <div class="impact-icon">🎯</div>
-        <div class="impact-text">
-          <h3>هدف التنمية السادس</h3>
-          <p>هذا البحث يدعم هدف الأمم المتحدة للتنمية المستدامة: "مياه نظيفة وصرف صحي للجميع"</p>
-        </div>
+      <div class="vs-card">
+        <div class="vs-icon">🔥</div>
+        <h3>الفحم النباتي</h3>
+        <p>مليء بمسامات صغيرة جداً تعمل كـ<strong>إسفنجة</strong> تمتص المواد الكيميائية الضارة والروائح من الماء.</p>
       </div>
-      <div class="impact-item" data-reveal>
-        <div class="impact-icon">🏫</div>
-        <div class="impact-text">
-          <h3>قابل للتطبيق في المدارس</h3>
-          <p>يمكن بناء هذا الفلتر من مواد بسيطة متوفرة في أي مدرسة أو منزل</p>
-        </div>
+      <div class="vs-card">
+        <div class="vs-icon">🍌</div>
+        <h3>قشور الفاكهة</h3>
+        <p>قشور الموز والبرتقال المجففة تمتص <strong>المعادن السامة والأصباغ</strong> — وهي نفايات زراعية مجانية!</p>
       </div>
-      <div class="impact-item" data-reveal>
-        <div class="impact-icon">🌐</div>
-        <div class="impact-text">
-          <h3>تأثير عالمي</h3>
-          <p>الحل يستهدف المجتمعات الريفية والنامية حول العالم التي تعاني من شح المياه النظيفة</p>
+      <div class="vs-card">
+        <div class="vs-icon">🪨</div>
+        <h3>الطين</h3>
+        <p>الطين الطبيعي يساعد على <strong>تجميع الشوائب</strong> وتسهيل ترسيبها — يخفض العكارة أكثر من 96%.</p>
+      </div>
+      <div class="vs-card vs-card-wide">
+        <div class="vs-icon">🏆</div>
+        <h3>النتيجة المذهلة</h3>
+        <p>عند تجميع هذه المواد في <strong>فلتر متعدد الطبقات</strong>، يمكن إزالة أكثر من 99% من الأوساخ من الماء — بتكلفة شبه مجانية!</p>
+        <div class="vs-bar-mini">
+          <div class="vb-row"><span>المورينجا</span><div class="vb-track"><div class="vb-fill" data-w="99">99%</div></div></div>
+          <div class="vb-row"><span>الطين</span><div class="vb-track"><div class="vb-fill" data-w="96">96%</div></div></div>
+          <div class="vb-row"><span>قشور الفاكهة</span><div class="vb-track"><div class="vb-fill" data-w="90">90%</div></div></div>
+          <div class="vb-row"><span>الفحم النباتي</span><div class="vb-track"><div class="vb-fill" data-w="85">85%</div></div></div>
+          <div class="vb-row gold-row"><span>⚡ الفلتر المتكامل</span><div class="vb-track"><div class="vb-fill gold-fill" data-w="99.5">&gt;99%</div></div></div>
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- DIVIDER -->
-<div class="section-divider"><div class="divider-wave"></div></div>
+<!-- ══════════════════════════════════
+     ④ WHY IT MATTERS
+══════════════════════════════════ -->
+<div class="zone-label why-zone-label" id="why-matters">
+  <div class="zone-label-inner">
+    <span class="zone-icon">🌍</span>
+    <div>
+      <strong>لماذا يهمنا هذا البحث؟</strong>
+      <span>التأثير على العالم والمجتمع</span>
+    </div>
+  </div>
+</div>
 
-<!-- ===== RESEARCH CONTENT START ===== -->
+<section class="why-section">
+  <div class="container">
 
+    <div class="why-grid">
+      <div class="why-card" data-reveal>
+        <div class="why-num">01</div>
+        <div class="why-ico">🏥</div>
+        <h3>صحة الإنسان أولاً</h3>
+        <p>الماء الملوث يقتل الملايين سنوياً بأمراض كالكوليرا والإسهال — خاصة الأطفال في الدول النامية.</p>
+      </div>
+      <div class="why-card" data-reveal>
+        <div class="why-num">02</div>
+        <div class="why-ico">💰</div>
+        <h3>توفير الميزانيات</h3>
+        <p>المواد الطبيعية رخيصة أو مجانية مقارنة بالكيماويات الصناعية المستوردة الباهظة التي تُثقل كاهل الدول.</p>
+      </div>
+      <div class="why-card" data-reveal>
+        <div class="why-num">03</div>
+        <div class="why-ico">🌱</div>
+        <h3>حماية البيئة</h3>
+        <p>لا كيماويات ضارة، لا ملوثات إضافية، مواد قابلة للتحلل الطبيعي — حل مستدام حقيقي.</p>
+      </div>
+      <div class="why-card" data-reveal>
+        <div class="why-num">04</div>
+        <div class="why-ico">🏫</div>
+        <h3>قابل للتطبيق الآن</h3>
+        <p>يمكن بناء هذا الفلتر في أي مدرسة أو منزل بمواد بسيطة — لا يحتاج تقنية معقدة أو كهرباء.</p>
+      </div>
+      <div class="why-card" data-reveal>
+        <div class="why-num">05</div>
+        <div class="why-ico">🌾</div>
+        <h3>دخل للمزارعين</h3>
+        <p>زراعة المورينجا توفر مصدر دخل إضافي للمزارعين المحليين عبر بيع البذور لمحطات التنقية.</p>
+      </div>
+      <div class="why-card sdg-card" data-reveal>
+        <div class="why-num">06</div>
+        <div class="why-ico">🎯</div>
+        <h3>هدف الأمم المتحدة السادس</h3>
+        <p>هذا البحث يساهم مباشرة في تحقيق هدف التنمية المستدامة رقم 6: <em>مياه نظيفة وصرف صحي للجميع بحلول 2030.</em></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     ⑤ FULL RESEARCH — COMPLETE TEXT
+══════════════════════════════════ -->
 <div class="zone-label research-zone-label" id="full-research">
   <div class="zone-label-inner">
     <span class="zone-icon">📄</span>
@@ -228,7 +389,7 @@
       <div class="r-school-name">مدرسة الرواد الثانوية</div>
       <h1 class="r-main-title">تقييم كفاءة المواد الطبيعية منخفضة التكلفة في تنقية المياه</h1>
       <div class="r-meta-grid">
-        <div class="r-meta-item"><span class="r-meta-label">إعداد الطالب</span><span class="r-meta-val">حسين علي شيبان</span></div>
+        <div class="r-meta-item"><span class="r-meta-label">إعداد المجموعة</span><span class="r-meta-val">حسين علي شيبان ومحمد عبدالعزيز تنبل وماجد فهد المطيري ومسعود حمد المري وفيصل عادل آل سرحان وفهد حسن الزهراني</span></div>
         <div class="r-meta-item"><span class="r-meta-label">المادة</span><span class="r-meta-val">التنمية المستدامة 2</span></div>
         <div class="r-meta-item"><span class="r-meta-label">التاريخ الميلادي</span><span class="r-meta-val">30/01/2026</span></div>
         <div class="r-meta-item"><span class="r-meta-label">التاريخ الهجري</span><span class="r-meta-val">11/08/1447</span></div>
@@ -345,10 +506,8 @@
           <li><strong>الفحم النباتي (Activated Carbon):</strong> يمكن إنتاجه من مخلفات خشبية أو جوز الهند، وهو ممتز فعّال للكثير من الملوثات العضوية. يستخدم الفحم النشط تجاريًا في مرشحات المياه لإزالة الطعم والرائحة والمواد الكيميائية، وله قدرة عالية على حجز الجسيمات الدقيقة. الشكل 1 أدناه يظهر قشور جوز الهند الذي يعد من المواد الأولية للفحم النباتي.</li>
         </ul>
         <div class="r-figure">
-          <div class="figure-container">
-            <img src="images/image1.PNG" alt="نصف قشرة جوز الهند الجافة (مصدر للفحم النباتي)">
-            <div class="figure-caption">الشكل 1: نصف قشرة جوز الهند الجافة (مصدر للفحم النباتي).</div>
-          </div>
+          <div class="r-figure-placeholder">🥥</div>
+          <p class="r-figure-caption">الشكل 1: نصف قشرة جوز الهند الجافة (مصدر للفحم النباتي).</p>
         </div>
         <ul>
           <li><strong>قشور الفاكهة (Banana, Orange, Mango, إلخ):</strong> تعتبر مخلفات زراعية مجانية، حيث أظهرت التجارب قدرتها على امتصاص الأصباغ والمعادن الثقيلة من الماء. مثلاً، أظهرت الأبحاث أن قشور الموز والبرتقال المجففة والمطحونة تزيل أكثر من 90% من بعض الأصباغ الصناعية عند ظروف مناسبة. تساهم المجموعة الوظيفية (كربوكسيل، هيدروكسيل) في هذه القشور في جذب الأيونات الملوثة إلى السطح واحتجازها.</li>
@@ -378,10 +537,6 @@
         <p>قبل اختبارها، يجب تجهيز المواد الطبيعية المستخدمة كما يلي:</p>
         <ul>
           <li><strong>المورينجا:</strong> تُجمع القرون الناضجة، تُفتح لاستخراج البذور، ثم يُزال القشرة الخارجية والزعانف. تُجفَّف البذور جيدًا في الهواء أو في فرن (≈105°C) لعدة ساعات. بعد ذلك، تُطحن البذور إلى مسحوق ناعم (منخل حتى حبيبات ≈710 ميكرون).</li>
-          <div class="figure-container">
-            <img src="images/image2.PNG" alt="طحن بذور المورينجا وتحويلها إلى مسحوق ناعم">
-            <div class="figure-caption">الشكل 2: طحن بذور المورينجا وتحويلها إلى مسحوق ناعم.</div>
-          </div>
           <li><strong>الفحم النباتي:</strong> إذا كان متوفرًا (مثل الفحم المستخدم في الشواء)، يُسحق جزئيًا إلى قطع صغيرة، ثم يُغسل بماء ساخن لإزالة الغبار والشوائب. يمكن تجفيف الفحم المسحوق وخلطه مع الرمل للحصول على خليط فلترة فعال. إن وُجد فحم جوز الهند المحمص، فهو مفضل لجودة امتزازه العالية.</li>
           <li><strong>قشور الفاكهة:</strong> تُجمع قشور فاكهة طازجة (موز، برتقال، إلخ)، ثم تُغسل وتُجفف (في الشمس أو في فرن منخفض الحرارة) حتى تفقد الرطوبة. ثم تُطحن القشور المجففة وتُنخل للحصول على مسحوق أو حبيبات خشن. يمكن تفعيلها حراريًا (تسخين معتدل) لزيادة مساميتها.</li>
           <li><strong>الطين:</strong> يُؤخذ طين نقي (أبيض أو بني) غير ملّوث، ويُمزج مع قليل من الرمل لتحسين النفاذية. يفضل طحنه خشنًا وعدم تركه غروانيًا كاملاً، لتفادي ارتفاع العكارة عند الاستخدام (يمكن غسله ببطء قبل التجربة).</li>
@@ -621,7 +776,8 @@
   <div class="footer-inner">
     <div class="footer-logo">💧</div>
     <p class="footer-title">تقييم كفاءة المواد الطبيعية منخفضة التكلفة في تنقية المياه</p>
-    <p class="footer-by">حسين علي شيبان — مدرسة الرواد الثانوية — 2026</p>
+    <p class="footer-by">حسين علي شيبان ومحمد عبدالعزيز تنبل وماجد فهد المطيري ومسعود حمد المري وفيصل عادل آل سرحان وفهد حسن الزهراني</p>
+    <p class="footer-school">مدرسة الرواد الثانوية — 2026</p>
     <p class="footer-sdg">🎯 مساهمة في الهدف السادس للتنمية المستدامة</p>
   </div>
 </footer>
