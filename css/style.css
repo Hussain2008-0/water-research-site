@@ -747,6 +747,10 @@ body {
   border: 3px solid #00bcd4;
   opacity: 0.6;
 }
+.team-card:hover .team-avatar img {
+  transform: scale(1.1);
+  transition: 0.4s;
+}
 @media (max-width: 480px) {
   .hero-title { font-size: 1.7rem; }
   .hero-stats { gap: 10px; }
