@@ -310,8 +310,7 @@ body {
 }
 .research-toc a:hover { color:var(--c-gold-lt); background:rgba(245,166,35,.12); }
 
-
-.team-card:hover { transform:translate/* ─── TEAM SECTION ───────────────────────────────────────── */
+/* ─── TEAM SECTION ───────────────────────────────────────── */
 .team-section { background:#060f1a; padding:50px 24px 70px; position:relative; z-index:1; }
 .container { max-width:var(--max-w); margin:0 auto; }
 
@@ -334,7 +333,8 @@ body {
   content:''; position:absolute; inset:0;
   background: radial-gradient(ellipse at 50% 0%, rgba(56,200,245,.07), transparent 70%);
   opacity:0; transition:opacity .35s;
-}Y(-7px); border-color:rgba(56,200,245,.4); box-shadow:0 14px 36px rgba(56,200,245,.14); }
+}
+.team-card:hover { transform:translateY(-7px); border-color:rgba(56,200,245,.4); box-shadow:0 14px 36px rgba(56,200,245,.14); }
 .team-card:hover::before { opacity:1; }
 
 .team-card--leader { border-color:rgba(245,166,35,.35); background:rgba(245,166,35,.04); }
