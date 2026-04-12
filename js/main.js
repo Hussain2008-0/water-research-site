@@ -1,123 +1,95 @@
 /* ============================================================
-   main.js — Water Purification Research Website
-   v3 — Enhanced with performance optimizations
+   main.js — Water Purification Research v3
    ============================================================ */
 
-/* ─── NAVBAR SCROLL ─────────────────────────────────────── */
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
-}, { passive: true });
-
-/* ─── HAMBURGER MENU ────────────────────────────────────── */
-const hamburger = document.getElementById('hamburger');
-const navMenu   = document.getElementById('navMenu');
-
-hamburger.addEventListener('click', () => {
-  navMenu.classList.toggle('open');
-});
-navMenu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => navMenu.classList.remove('open'));
-});
-
-/* ─── BACKGROUND PARTICLES ──────────────────────────────── */
-// Respect reduced motion preference
-const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-if (!prefersReduced) {
-  const container = document.getElementById('bgParticles');
-  const COUNT = 18;
-  for (let i = 0; i < COUNT; i++) {
+// ── Particles ─────────────────────────────────────────────
+(function () {
+  const wrap = document.getElementById('bgParticles');
+  if (!wrap) return;
+  for (let i = 0; i < 22; i++) {
     const p = document.createElement('div');
     p.className = 'particle';
-    const s = Math.random() * 14 + 4;
-    p.style.cssText = `
-      width:${s}px; height:${s}px;
-      left:${Math.random()*100}%;
-      animation-duration:${Math.random()*18 + 12}s;
-      animation-delay:${Math.random()*-20}s;
-      opacity:.12;
-    `;
-    container.appendChild(p);
+    const s = 4 + Math.random() * 14;
+    p.style.cssText = `width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${10+Math.random()*22}s;animation-delay:${-Math.random()*20}s;`;
+    wrap.appendChild(p);
   }
-}
+})();
 
-/* ─── BUBBLES ────────────────────────────────────────────── */
-if (!prefersReduced) {
-  const bubbleContainer = document.getElementById('bubbles');
-  const BUBBLE_COUNT = 10;
-  for (let i = 0; i < BUBBLE_COUNT; i++) {
+// ── Bubbles ───────────────────────────────────────────────
+(function () {
+  const wrap = document.getElementById('bubbles');
+  if (!wrap) return;
+  for (let i = 0; i < 16; i++) {
     const b = document.createElement('div');
     b.className = 'bubble';
-    const s = Math.random() * 30 + 10;
-    b.style.cssText = `
-      width:${s}px; height:${s}px;
-      left:${Math.random()*90+5}%;
-      animation-duration:${Math.random()*12 + 8}s;
-      animation-delay:${Math.random()*-15}s;
-    `;
-    bubbleContainer.appendChild(b);
+    const s = 8 + Math.random() * 28;
+    b.style.cssText = `width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${5+Math.random()*12}s;animation-delay:${-Math.random()*10}s;`;
+    wrap.appendChild(b);
   }
-}
+})();
 
-/* ─── COUNTER ANIMATION ─────────────────────────────────── */
-function animateCounter(el) {
-  const target = parseFloat(el.dataset.count);
-  const isDecimal = target % 1 !== 0;
-  const duration = 1800;
-  const start = performance.now();
+// ── Navbar scroll ─────────────────────────────────────────
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
 
-  function update(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-    const value = target * eased;
-    el.textContent = isDecimal ? value.toFixed(1) : Math.floor(value);
-    if (progress < 1) requestAnimationFrame(update);
-    else el.textContent = isDecimal ? target.toFixed(1) : target;
-  }
-  requestAnimationFrame(update);
-}
-
-/* ─── BAR CHART FILL ─────────────────────────────────────── */
-function triggerBars(container) {
-  container.querySelectorAll('.vb-fill').forEach(bar => {
-    const w = bar.dataset.w;
-    bar.style.setProperty('--w', w);
-    bar.classList.add('go');
+// ── Hamburger ─────────────────────────────────────────────
+const ham = document.getElementById('hamburger');
+const menu = document.getElementById('navMenu');
+if (ham && menu) {
+  ham.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('.nlink').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+  document.addEventListener('click', e => {
+    if (!ham.contains(e.target) && !menu.contains(e.target)) menu.classList.remove('open');
   });
 }
 
-/* ─── INTERSECTION OBSERVER ─────────────────────────────── */
-const revealObserver = new IntersectionObserver((entries) => {
+// ── Counter animation ─────────────────────────────────────
+function animateCount(el) {
+  const target = parseFloat(el.dataset.count);
+  const isFloat = target % 1 !== 0;
+  const dur = 1800;
+  const t0 = performance.now();
+  (function tick(now) {
+    const t = Math.min((now - t0) / dur, 1);
+    const ease = 1 - Math.pow(1 - t, 3);
+    el.textContent = isFloat ? (ease * target).toFixed(1) : Math.round(ease * target);
+    if (t < 1) requestAnimationFrame(tick);
+  })(t0);
+}
+
+// ── Scroll reveal + bars + counters ───────────────────────
+const io = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
-    entry.target.classList.add('in');
-    revealObserver.unobserve(entry.target);
+    const el = entry.target;
+    el.classList.add('in');
+
+    // counters inside hero-stats (stat-n)
+    el.querySelectorAll('.stat-n[data-count]').forEach(animateCount);
+
+    // bar fills
+    el.querySelectorAll('.vb-fill[data-w]').forEach(bar => {
+      bar.style.setProperty('--w', bar.dataset.w);
+      setTimeout(() => bar.classList.add('go'), 150);
+    });
+
+    io.unobserve(el);
   });
 }, { threshold: 0.12 });
 
-document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
 
-// Counter observer — triggers on hero stats
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.querySelectorAll('[data-count]').forEach(animateCounter);
-    counterObserver.unobserve(entry.target);
-  });
-}, { threshold: 0.5 });
-
+// Hero stats counters (no data-reveal on them)
 const heroStats = document.querySelector('.hero-stats');
-if (heroStats) counterObserver.observe(heroStats);
-
-// Bar chart observer
-const barObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    triggerBars(entry.target);
-    barObserver.unobserve(entry.target);
-  });
-}, { threshold: 0.3 });
-
-document.querySelectorAll('.vs-bar-mini').forEach(el => barObserver.observe(el));
+if (heroStats) {
+  const ios = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.querySelectorAll('.stat-n[data-count]').forEach(animateCount);
+      ios.unobserve(e.target);
+    });
+  }, { threshold: 0.5 });
+  ios.observe(heroStats);
+}
